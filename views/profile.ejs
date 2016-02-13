@@ -1,0 +1,30 @@
+<html>
+  <head>
+<% include ./head.ejs %>
+  </head>
+
+  <body>
+
+  <% include ./header.ejs %> 
+
+    <div class="container">
+        <span>Hi <%= user.local.email %> !</span>
+        <br>
+        <h3>Your Polls</h3>
+        <div class="pollcontainer"></div>
+        <br>
+        <a class="newPoll btn" href="/newPoll">Create Poll</a>
+        <a class="btn" href="/logout">Log Out</a>
+
+
+    </div>
+
+    <footer>
+      <% include ./footer.ejs %> 
+    </footer>
+    
+   <script type="text/javascript" src="common/ajax-functions.js"></script>
+    <script type="text/javascript" src="controllers/pollController.client.js"></script>
+    <script type="text/javascript" src="controllers/userController.client.js"></script>
+  </body>
+  </html>

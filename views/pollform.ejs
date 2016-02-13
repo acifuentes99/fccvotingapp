@@ -1,0 +1,61 @@
+<html>
+  <head>
+<% include ./head.ejs %>
+  </head>
+
+  <body>
+
+<% include ./header.ejs %>
+    <div class="container">
+    <strong>id</strong>: <%= user.local.email %>, create your poll<br>
+
+    <form action="/api/polls" method="post">
+        <div class="form-group">
+            <label>Poll Name</label>
+            <input type="text" class="form-control" name="pollname">
+        </div>
+
+   <div>
+      <div>
+        <label>Opcion:</label> <input name="ins[]" type="text" value="">
+      <span class="remove">Remove</span>
+      </div>
+    </div>
+  
+    <p id="here">
+    </p>
+
+    <input type="button" class="add" value="Add another option"> 
+        <button type="submit" class="btn btn-warning btn-lg">Registrar</button>
+    </form>
+    </div>
+
+<div id="model" class="hidden">
+    <label>Opcion:</label> <input type="text" name="ins[]" value="">
+    <span class="remove">Remove</span>
+</div>
+
+    <footer>
+      <% include ./footer.ejs %> 
+    </footer> 
+
+  </body>
+
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script>
+
+$(".add").click(function() {
+  $("#model").clone(true).insertBefore("#here").removeClass("hidden");
+  //.attr("name", "ins[]")
+    return false;
+});
+
+$(".remove").on("click",  function(){
+    $(this).parent().remove();
+});
+    </script>
+
+   <script type="text/javascript" src="common/ajax-functions.js"></script>
+    <script type="text/javascript" src="controllers/pollController.client.js"></script>
+    <script type="text/javascript" src="controllers/userController.client.js"></script>
+</html>
