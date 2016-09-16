@@ -35,7 +35,9 @@
         campo.innerHTML = 'alaz'; 
     });
 
-    tryget.addEventListener('click', function(){
+    
+
+tryget.addEventListener('click', function(){
         console.log("Trying gets");
          ajaxFunctions.ajaxRequest('GET', apiUrl, renderPolls);
     });

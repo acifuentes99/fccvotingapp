@@ -1,0 +1,21 @@
+{
+  "name": "plantilla_web",
+  "description": "Planilla para realizar proyectos Web (vease Readme)",
+  "main": "server.js",
+  "authors": [
+    "Andrés Cifuentes"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "bootstrap-sass-official#^3.3.6",
+    "font-awesome": "fontawesome#^4.6.3"
+  }
+}

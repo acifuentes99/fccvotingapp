@@ -11,7 +11,7 @@
         <div class="alert alert-danger"><%= message %></div>
     <% } %>
 
-    <form action="/login" method="post">
+    <form class="login-content" action="/login" method="post">
         <div class="form-group">
             <label>Email</label>
             <input type="text" class="form-control" name="email">
@@ -20,8 +20,9 @@
             <label>Password</label>
             <input type="password" class="form-control" name="password">
         </div>
-
+        <div class="btn-container">
         <button type="submit" class="btn btn-warning btn-lg">Login</button>
+        </div>
     </form>
     </div>
 
@@ -29,8 +30,8 @@
       <% include ./footer.ejs %> 
     </footer>
     
-   <script type="text/javascript" src="common/ajax-functions.js"></script>
-    <script type="text/javascript" src="controllers/pollController.client.js"></script>
-    <script type="text/javascript" src="controllers/userController.client.js"></script>
+   <script type="text/javascript" src="/common/ajax-functions.js"></script>
+    <script type="text/javascript" src="/controllers/pollController.client.js"></script>
+    <script type="text/javascript" src="/controllers/userController.client.js"></script>
   </body>
   </html>

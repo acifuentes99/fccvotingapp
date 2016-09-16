@@ -1,0 +1,4 @@
+- [] Crear correctamente el Edit page
+- [] Darle más diseño front end
+- [] Crear un boton para obtener la url
+- 

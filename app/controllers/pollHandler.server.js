@@ -57,7 +57,8 @@ this.getProfilePolls = function(req, res){
         });
     };
 
-    this.prepareEdit = function(req, res){
+    this.openEdit = function(req, res){
+        var polls_aux = [];
         Polls
         .find({'creator': req.user.local.email, 'pollname': req.params.id })
         .exec(function(err, result){
@@ -67,13 +68,30 @@ this.getProfilePolls = function(req, res){
        });
     }; 
 
+    this.editPoll = function(req, res){
+        console.log('the values are: ');
+        console.log('values: '+req.body.poll_ins);
+        console.log('values: '+req.body.poll_vote);
+        if(req.body.poll_ins && req.body.poll_vote){
+            var aux = [];
+            var body1 = req.body;
+            for(var i=0; i<body1.poll_ins.length; i++){
+                aux.push({ 'name': body1.poll_ins[i], 'votes': parseInt(body1.poll_vote[i]) });    
+            }
+            Polls
+            .findOneAndUpdate({ 'pollname': req.params.id }, { 'hola': aux })
+            .exec(function(err, result) {
+                res.redirect('/profile');
+            });
+        }
+        else{ throw err; }
+    };
+
    this.deletePoll =  function(req, res){
         Polls
         .findOneAndRemove({ 
             'pollname' : req.params.id, 
             'creator' : req.user.local.email })
-        //.exec(function(err, result) { console.log(res.json(result)); })
-        //.remove()
         .exec(function(err) {
             console.log(req.params.id + '  ');
             console.log(req.user.local.email);

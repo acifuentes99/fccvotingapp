@@ -6,9 +6,9 @@
   <body>
 
 <% include ./header.ejs %>
-    <div class="container">
+    <div class="container container2">
     <strong>id</strong>: <%= user.local.email %>, create your poll<br>
-
+    <br>
     <form action="/api/polls" method="post">
         <div class="form-group">
             <label>Poll Name</label>
@@ -17,22 +17,22 @@
 
    <div>
       <div>
-        <label>Opcion:</label> <input name="ins[]" type="text" value="">
-      <span class="remove">Remove</span>
+        <label>Option:</label> <input name="ins[]" type="text" value="">
+      <span class="remove btn">X</span>
       </div>
     </div>
   
     <p id="here">
     </p>
 
-    <input type="button" class="add" value="Add another option"> 
-        <button type="submit" class="btn btn-warning btn-lg">Registrar</button>
+        <input type="button" class="add btn" value="Add another option"> 
+        <button type="submit" class="btn btn-warning btn">Register</button>
     </form>
     </div>
 
 <div id="model" class="hidden">
-    <label>Opcion:</label> <input type="text" name="ins[]" value="">
-    <span class="remove">Remove</span>
+    <label>Option:</label> <input type="text" name="ins[]" value="">
+    <span class="remove btn">X</span>
 </div>
 
     <footer>
@@ -55,7 +55,7 @@ $(".remove").on("click",  function(){
 });
     </script>
 
-   <script type="text/javascript" src="common/ajax-functions.js"></script>
-    <script type="text/javascript" src="controllers/pollController.client.js"></script>
-    <script type="text/javascript" src="controllers/userController.client.js"></script>
+   <script type="text/javascript" src="/common/ajax-functions.js"></script>
+    <script type="text/javascript" src="/controllers/pollController.client.js"></script>
+    <script type="text/javascript" src="/controllers/userController.client.js"></script>
 </html>

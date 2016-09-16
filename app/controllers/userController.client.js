@@ -15,7 +15,7 @@
         var auxStr = '<table>';
         for(var i=0; i<aux.length; i++){
             var aux3 = aux[i].pollname;
-            auxStr = auxStr.concat('<td><span>'+aux3+'</span></td><td><a class="btn delPoll" href="'+apiUrl2+aux3+'">Delete</a></td><td><a class="btn" href="/editPoll/'+aux3+'">Edit</a></td><td><a class="btn" href="/poll/'+aux3+'">View or Share</a></td></tr>');
+            auxStr = auxStr.concat('<tr><td><h3>'+aux3+'</h3></td></tr><tr><td><a class="poll-btn btn-sm btn-primary " href="/editPoll/'+aux3+'">Edit</a><a class="poll-btn btn-sm btn-primary" href="/poll/'+aux3+'">View or Share</a><a class="poll-btn btn-sm btn-primary delPoll" href="'+apiUrl2+aux3+'">Delete</a></td></tr>');
         }
         auxStr.concat('</table>');
         pollSquare.innerHTML = auxStr; 
@@ -33,8 +33,5 @@
         campo.innerHTML = asd; 
 
     });
-
-
-
 
 })();

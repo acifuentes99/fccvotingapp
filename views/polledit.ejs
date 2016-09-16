@@ -8,19 +8,20 @@
     <div class="container">
     <strong>id</strong>: <%= user.local.email %>, create your poll<br>
 
-    <form action="/api/polls" method="post">
+    <form action=<%= "/api/polls/edit/"+polls[0].pollname %> method="post">
         <div class="form-group">
             <h3><%= polls[0].pollname %></h3>
         </div>
-
    <div>
+
+       <p><% polls %></p>
 
 <table>
 <% polls[0].hola.forEach( function(aux){ %>
 <div>
     <tr>
-        <td><label>Opcion: <%= aux.name  %></label>
-           </td><td><span>Votes: <%= aux.votes %></span>
+        <td><label >Opcion: </label><input type="text" name="poll_ins[]" readonly value=<%= aux.name %> />
+        </td><td><span>Votes: </span><input type="number" name="poll_vote[]" readonly value=<%= aux.votes %> />
            </td><td><span class="remove">Remove</span>
            </td></tr></div>
 <% }); %>
@@ -34,10 +35,19 @@
     </form>
     </div>
 
-<div id="model" class="hidden">
+<!--div id="model" class="hidden">
     <label>Opcion:</label> <input type="text" name="ins[]" value="">
     <span class="remove">Remove</span>
+</div-->
+
+<div id="model" class="hidden">
+    <div id="decoro">
+        <label >Opcion: </label><input type="text" name="poll_ins[]" value=""/>
+        <label>Votes: </label><input type="number" name="poll_vote[]" value="0" readonly/>
+        <span class="remove">Remove</span>
+    </div>
 </div>
+
     <footer>
       <% include ./footer.ejs %> 
     </footer> 
@@ -47,18 +57,18 @@
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script>
 
-$(".add").click(function() {
-  $("#model").clone(true).insertBefore("#here").removeClass("hidden");
-  //.attr("name", "ins[]")
-    return false;
-});
+        $(".add").click(function() {
+          $("#model").clone(true).insertBefore("#here").removeClass("hidden");
+          //.attr("name", "ins[]")
+            return false;
+        });
 
-$(".remove").on("click",  function(){
-    $(this).parent().remove();
-});
+        $(".remove").on("click",  function(){
+            $(this).parent().parent().remove();
+        });
     </script>
 
-   <script type="text/javascript" src="common/ajax-functions.js"></script>
-    <script type="text/javascript" src="controllers/pollController.client.js"></script>
-    <script type="text/javascript" src="controllers/userController.client.js"></script>
+   <script type="text/javascript" src="/common/ajax-functions.js"></script>
+    <script type="text/javascript" src="/controllers/pollController.client.js"></script>
+    <script type="text/javascript" src="/controllers/userController.client.js"></script>
 </html>

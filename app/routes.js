@@ -62,16 +62,24 @@ module.exports = function(app, passport) {
     .post(isLoggedIn, auxHandler.postPoll)
     .delete(isLoggedIn, auxHandler.deletePoll);
 
+    app.route('/api/polls/edit/:id')
+    .post(isLoggedIn, auxHandler.editPoll);
+
 
     app.route('/api/pollDel/:id')
     .get(isLoggedIn, auxHandler.deletePoll);
 
+    /*
     app.route('/editPoll/:id')
     .get(isLoggedIn, function(req,res) {
         res.render(path + '/views/polledit.ejs' , {
-            user: req.user
+            user: req.user, pollname: req.params.id
         });
     });
+    */
+
+    app.route('/editPoll/:id')
+    .get(isLoggedIn, auxHandler.openEdit);
 
     app.route('/poll/:id')
     .get(function(req,res) {
@@ -87,8 +95,8 @@ module.exports = function(app, passport) {
         next();
    },auxHandler.getPoll);
 
-     app.route('/api/polls3/:id/:id2')
-       .post(auxHandler.postVote);
+    app.route('/api/polls3/:id/:id2')
+    .post(auxHandler.postVote);
 
     app.route('/done')
     .get(function(req, res){

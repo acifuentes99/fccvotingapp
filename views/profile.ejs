@@ -7,24 +7,24 @@
 
   <% include ./header.ejs %> 
 
-    <div class="container">
+    <div class="container container3">
         <span>Hi <%= user.local.email %> !</span>
         <br>
-        <h3>Your Polls</h3>
+        <h2>Your Polls</h2>
         <div class="pollcontainer"></div>
         <br>
-        <a class="newPoll btn" href="/newPoll">Create Poll</a>
-        <a class="btn" href="/logout">Log Out</a>
-
-
+        <div class="btn-container">
+        <a class="newPoll btn btn-primary" href="/newPoll">Create Poll</a>
+        <a class="btn btn-primary" href="/logout">Log Out</a>
+        </div>
     </div>
 
     <footer>
       <% include ./footer.ejs %> 
     </footer>
     
-   <script type="text/javascript" src="common/ajax-functions.js"></script>
-    <script type="text/javascript" src="controllers/pollController.client.js"></script>
-    <script type="text/javascript" src="controllers/userController.client.js"></script>
+   <script type="text/javascript" src="/common/ajax-functions.js"></script>
+    <script type="text/javascript" src="/controllers/pollController.client.js"></script>
+    <script type="text/javascript" src="/controllers/userController.client.js"></script>
   </body>
   </html>
